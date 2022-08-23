@@ -10,9 +10,12 @@ function App () {
       <header className="App-header">
       </header>
 
+
+
+
       <Footer 
       rutaImagen={'UNICAHlogo.png'}/>
-
+      
     </div>
 
   );
