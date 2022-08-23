@@ -1,49 +1,49 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import Card from 'react-bootstrap/Card'
-
-const actividades = [
-    
-    { actividad: "Toma de posesión", img: "https://i.pinimg.com/originals/1c/54/f7/1c54f7b06d7723c21afc5035bf88a5ef.png", texto: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus animi aspernatur alias iusto natus quos!" },
-    { actividad: "Entrega de diplomados", img: "https://i.pinimg.com/originals/1c/54/f7/1c54f7b06d7723c21afc5035bf88a5ef.png", texto: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus animi aspernatur alias iusto natus quos!" },
-    { actividad: "Otra por ahí", img: "https://i.pinimg.com/originals/1c/54/f7/1c54f7b06d7723c21afc5035bf88a5ef.png", texto: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus animi aspernatur alias iusto natus quos!" },
-    { actividad: "Otra por ahí X2", img: "https://i.pinimg.com/originals/1c/54/f7/1c54f7b06d7723c21afc5035bf88a5ef.png", texto: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus animi aspernatur alias iusto natus quos!" },
-    { actividad: "Otra por ahí X3", img: "https://i.pinimg.com/originals/1c/54/f7/1c54f7b06d7723c21afc5035bf88a5ef.png", texto: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus animi aspernatur alias iusto natus quos!" },
-    { actividad: "Otra por ahí X4", img: "https://i.pinimg.com/originals/1c/54/f7/1c54f7b06d7723c21afc5035bf88a5ef.png", texto: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus animi aspernatur alias iusto natus quos!" },
-
-]
+import db from '../firebase'
+import { onSnapshot, collection, orderBy, query } from 'firebase/firestore';
+import CardActividad from './CardActividad'
 
 function Actividades() {
+
+  const [actividades, setActividades] = useState([]);
+
+  useEffect(() => {
+
+    const referencia = collection(db, "actividades")
+    const Query = query(referencia, orderBy("timestamp", "asc"))
+
+    onSnapshot(Query, (snapshot) => {
+
+        setActividades(snapshot.docs.map((doc) => ({
+            id: doc.id,
+            data: doc.data()
+        })))
+    })
+  }, [])
   
   return (
     <Container fluid="md">
-        <Row xs={1} md={3} className="g-4 mt-4 mb-4">
-            {actividades.map((item) => (
-                <Col>
-                    <Card style={{
-                        maxWidth: '366px',
-                        minHeight: '241px',
-                        backgroundColor: '#202136',
-                        color: '#F7F8FC'
-                    }}>
-                        <Card.Img variant="top" src={item.img} />
+        <Row xs={1} md={3} className="g-4 mt-4 mb-4">            
 
-                        <Card.Body>
-                            <Card.Title style={{
-                                color: '#DCDFEE'
-                            }}>{item.actividad}</Card.Title>
-                            <Card.Text>
-                                {item.texto}
-                            </Card.Text>
-                        </Card.Body>
-                    </Card>
+            {actividades.map(({ id, data: { actividad, img, texto  } }) => (
+
+                <Col>
+                    <CardActividad
+                    
+                        key={id}
+                        actividad={actividad}
+                        img={img}
+                        texto={texto}
+                    />
                 </Col>
+
             ))}
-            
+
         </Row>
-    </Container>    
+    </Container>
   )
 }
 
