@@ -6,7 +6,7 @@ import db from '../../firebase'
 import { onSnapshot, collection, orderBy, query } from 'firebase/firestore';
 import CardActividad from './CardActividad'
 
-function Actividades() {
+function Actividades({imagenNav}) {
 
   const [actividades, setActividades] = useState([]);
 
@@ -25,25 +25,35 @@ function Actividades() {
   }, [])
   
   return (
-    <Container fluid="md">
-        <Row xs={1} md={3} className="g-4 mt-4 mb-4">            
 
-            {actividades.map(({ id, data: { actividad, img, texto  } }) => (
+    <div className='Contenido'>
+        <img
+            className="rutaImagenBajo"
+            src={require(`../../assets/img/navegacion/${imagenNav}`)}
+            alt="Adorno Nav"
+        />
 
-                <Col>
-                    <CardActividad
-                    
-                        key={id}
-                        actividad={actividad}
-                        img={img}
-                        texto={texto}
-                    />
-                </Col>
+        <Container fluid="md">
+            <Row xs={1} md={3} className="g-4 mt-4 mb-4">            
 
-            ))}
+                {actividades.map(({ id, data: { actividad, img, texto  } }) => (
 
-        </Row>
-    </Container>
+                    <Col>
+                        <CardActividad
+                        
+                            key={id}
+                            actividad={actividad}
+                            img={img}
+                            texto={texto}
+                        />
+                    </Col>
+
+                ))}
+
+            </Row>
+        </Container>
+    </div>
+
   )
 }
 

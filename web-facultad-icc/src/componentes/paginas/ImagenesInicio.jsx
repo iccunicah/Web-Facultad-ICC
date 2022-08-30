@@ -25,7 +25,7 @@ function ImagenesInicio() {
 
     return (
         <div className="ImagenesInicio">
-            <Row xs={1} md={3} className="d-flex g-4 imagen">
+            <Row xs={1} md={3} className="d-flex g-4">
                 
                 {imagenes.map(({ id, data: { img } }) => (
                     <Col>

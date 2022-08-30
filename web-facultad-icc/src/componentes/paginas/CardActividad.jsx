@@ -10,6 +10,8 @@ function CardActividad({ actividad, img, texto }) {
             color: '#F7F8FC'
         }}>
         <Card.Img style={{
+            /* minHeight: '342px', */
+            minHeight: '15vw',
             maxHeight: '342px',
             objectFit: 'cover'
 
