@@ -24,11 +24,23 @@ function Inicio({portada, portadaBajo, portadaImagen, info1, info2, info3})
 
             <ImagenesInicio />
 
-            <hr className='linea'/>
-                <h1 className='text-center'>¿POR QUÉ ESTUDIAR INGENIERÍA EN CIENCIAS DE LA COMPUTACIÓN?</h1>
-            <hr className='linea'/>
+            <hr className='linea'   data-aos="fade-down"
+                                    data-aos-easing="linear"
+                                    data-aos-duration="1500"/>
 
-            <div className='info'>
+                <h1 className='text-center' data-aos="fade-down"
+                                            data-aos-easing="linear"
+                                            data-aos-duration="1500">
+                    ¿POR QUÉ ESTUDIAR INGENIERÍA EN CIENCIAS DE LA COMPUTACIÓN?
+                </h1>
+
+            <hr className='linea'   data-aos="fade-down"
+                                    data-aos-easing="linear"
+                                    data-aos-duration="1500"/>
+
+            <div className='info' data-aos="fade-down"
+                                  data-aos-easing="linear"
+                                  data-aos-duration="1500">
                 <Row className='justify-content-md-center'>
                     <Col sm={6} className='text-uppercase'>
                         <p>
@@ -47,8 +59,14 @@ function Inicio({portada, portadaBajo, portadaImagen, info1, info2, info3})
                     </Col>
                 </Row>
             </div>
-            <hr className='linea'/>
-            <div className='info'>
+            <hr className='linea'   data-aos="fade-down"
+                                    data-aos-easing="linear"
+                                    data-aos-duration="1500"/>
+
+            <div className='info' data-aos="fade-down"
+                                  data-aos-easing="linear"
+                                  data-aos-duration="1500">
+
                 <Row className='justify-content-md-center'>
                     <Col sm={4} className='d-flex flex-column justify-content-end'>
                         <img
@@ -57,7 +75,7 @@ function Inicio({portada, portadaBajo, portadaImagen, info1, info2, info3})
                             alt="Logo de la Facultad"
                         />
                     </Col>
-                    <Col sm={6} className='text-uppercase'>
+                    <Col sm={6} className='text-uppercase' data-aos="fade-up">
                         <p>
                             ES UNA carrera muy extensa tanto en habilidades técnicas y desarrollo empresarial, lo que permite estar en 
                             un constante aprendizaje ya que la tecnología avanza todos los días y formando parte de esta carrera 
@@ -66,8 +84,15 @@ function Inicio({portada, portadaBajo, portadaImagen, info1, info2, info3})
                     </Col>
                 </Row>
             </div>
-            <hr className='linea'/>
-            <div className='info'>
+
+            <hr className='linea'   data-aos="fade-down"
+                                    data-aos-easing="linear"
+                                    data-aos-duration="1500"/>
+
+            <div className='info' data-aos="fade-down"
+                                  data-aos-easing="linear"
+                                  data-aos-duration="1500">
+
                 <Row className='justify-content-md-center'>
                     <Col sm={6} className='text-uppercase'>
                         <p>

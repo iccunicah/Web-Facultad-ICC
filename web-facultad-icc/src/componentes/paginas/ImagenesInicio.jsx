@@ -5,7 +5,7 @@ import Row from 'react-bootstrap/Row';
 
 function ImagenesInicio() {
     return (
-        <div className="ImagenesInicio">
+        <div className="ImagenesInicio" data-aos="fade-up">
             <Row xs={1} md={3} className="d-flex g-4">
                 {Array.from({ length: 6 }).map((_, idx) => (
                     <Col>
