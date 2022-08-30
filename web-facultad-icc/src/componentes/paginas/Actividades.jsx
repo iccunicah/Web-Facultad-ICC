@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import db from '../firebase'
+import db from '../../firebase'
 import { onSnapshot, collection, orderBy, query } from 'firebase/firestore';
 import CardActividad from './CardActividad'
 
