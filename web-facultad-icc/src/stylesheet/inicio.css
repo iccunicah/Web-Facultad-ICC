@@ -9,3 +9,15 @@
     padding: 0;
     width: 100%;
 }
+.ImagenesInicio{
+    padding: 5%;
+}
+.info{
+    
+    padding-left: 8%;
+    padding-right: 8%;
+}
+
+.scroll-arreglado{
+    overflow-y: hidden;
+}
