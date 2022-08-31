@@ -1,0 +1,19 @@
+.titulo{
+    font-size: 100px;
+}
+.infoqs{
+    padding-left: 10%;
+    padding-right: 10%;
+    font-size: 20px;
+    text-align: center;
+}
+.valoresTitulo{
+    margin-top: 25px;
+}
+.valores{
+    margin-bottom: 30px;
+}
+.mv{
+    padding-left: 15px;
+    padding-right: 15px;
+}
