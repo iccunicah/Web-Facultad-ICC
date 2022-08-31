@@ -42,7 +42,7 @@ export default function NavInicio({rutaImagen, rutaImagenToggle})
 							</Nav.Link>
 						</Col>
 						<Col>
-							<Nav.Link href="https://www.youtube.com/channel/UClQ8f9tpGmb_tFpL3v_GEBw">
+							<Nav.Link href="https://www.youtube.com/channel/UC26gYslgbtHkUvptybeF8YA">
 								<Youtube size={25} className="redes" />
 							</Nav.Link>
 						</Col>
