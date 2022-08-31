@@ -33,7 +33,10 @@ function App () {
                                     info2='Foto2Info.png'
                                     info3='Foto3Info.png' />} />
         <Route path="*" element={<NotFound imagenNav='FondoMenuMovil.png'/>} />
-        <Route path="/QuienesSomos" element={<QuienesSomos imagenNav='FondoMenuMovil.png' />} />
+        <Route path="/QuienesSomos" element={<QuienesSomos 
+                                                imagenNav='FondoMenuMovil.png'
+                                                carousel1='Carousel1.png'
+                                                carousel2='Carousel2.png' />} />
         <Route path="/Contacto" element={<Contacto imagenNav='FondoMenuMovil.png' />} />
         <Route path="/Actividades" element={<Actividades imagenNav='FondoMenuMovil.png' />} />
         <Route path="/Recursos" element={<Recursos imagenNav='FondoMenuMovil.png' />} />
