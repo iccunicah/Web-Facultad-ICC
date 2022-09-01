@@ -4,9 +4,11 @@ import '../../stylesheet/quienesSomos.css';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import ReactPlayer from 'react-player/lazy';
+import AOS from 'aos';
 
 function QuienesSomos({imagenNav, carousel1, carousel2})
 {
+    
     return (
         <>
             <Carousel fade>
@@ -36,9 +38,19 @@ function QuienesSomos({imagenNav, carousel1, carousel2})
                     alt="Logo de la Facultad"
                 />
             </div>
-            <hr className='linea'/>
-            <h1 className='text-center text-uppercase titulo'>Quiénes somos</h1>
-            <p className='justify-content text-uppercase infoqs'>
+            <hr className='linea'   
+                data-aos="fade-up"
+                data-aos-easing="linear"
+                data-aos-duration="1500"/>
+
+            <h1 className='text-center text-uppercase titulo' 
+                data-aos="fade-up"
+                data-aos-easing="linear"
+                data-aos-duration="1500">Quiénes somos</h1>
+            <p className='justify-content text-uppercase infoqs' 
+               data-aos="fade-up"
+               data-aos-easing="linear"
+               data-aos-duration="1500">
                 Somos una carrera en donde se abordan las bases teóricas y metodológicas necesarias para el diseño, 
                 implantación, análisis, control, procesamiento, transporte, operatividad, toma de decisiones y búsqueda de seguridad 
                 de los sistemas informáticos.
@@ -47,23 +59,42 @@ function QuienesSomos({imagenNav, carousel1, carousel2})
                 de igual forma se enfoca al análisis, diseño y la utilización del hardware y software para lograr la implementación 
                 de las más avanzadas aplicaciones industriales y telemáticas
             </p>
-            <hr className='linea'/>
+
+            <hr className='linea'   
+                data-aos="fade-up"
+                data-aos-easing="linear"
+                data-aos-duration="1500"/>
+
             <Row className='text-center'>
-                <Col className='text-uppercase'>
+                <Col className='text-uppercase' 
+                     data-aos="fade-right"
+                     data-aos-easing="linear"
+                     data-aos-duration="1500">
                     <h2 className='tituloVM'>Misión</h2>
                     <p className='mv justify-text'>
                         En el año 2022 seremos una universidad donde lo espiritual es tan importante como lo académico, con un sistema certificado y acreditado de educación superior, para el desarrollo intelectual, ético y moral de profesionales que contribuyan a la construcción de una nueva sociedad.
                     </p>
                 </Col>
-                <Col className='text-uppercase'>
+                <Col className='text-uppercase' 
+                     data-aos="fade-left"
+                     data-aos-easing="linear"
+                     data-aos-duration="1500">
+
                     <h2 className='tituloVM'>Visión</h2>
                     <p className='mv justify-text'>
                         Garantizar la presencia del catolicismo en la educación superior de Honduras y asegurar una formación integral en función de las distintas dimensiones del ser humano: lo social, lo moral, lo espiritual, lo científico, lo técnico y lo religioso.
                     </p>
                 </Col>
             </Row>
-            <h2 className='text-center text-uppercase valoresTitulo'>Nuestros Valores</h2>
-            <Row className='text-uppercase text-center valores'>
+            <h2 className='text-center text-uppercase valoresTitulo' 
+                data-aos="fade-up"
+                data-aos-easing="linear"
+                data-aos-duration="1500">Nuestros Valores</h2>
+
+            <Row className='text-uppercase text-center valores' 
+                 data-aos="fade-up"
+                 data-aos-easing="linear"
+                 data-aos-duration="1500">
                 <Col>
                     Justicia
                 </Col>
@@ -80,9 +111,22 @@ function QuienesSomos({imagenNav, carousel1, carousel2})
                     Verdad
                 </Col>
             </Row>
-            <hr className='linea'/>
-            <h2 className='text-center text-uppercase tituloVideo'>Conoce un poco más sobre nosotros</h2>
-            <div className='player-wrapper'>
+
+            <hr className='linea'   
+                data-aos="fade-up"
+                data-aos-easing="linear"
+                data-aos-duration="1500"/>
+
+            <h2 className='text-center text-uppercase tituloVideo' 
+                data-aos="fade-up"
+                data-aos-easing="linear"
+                data-aos-duration="1500">Conoce un poco más sobre nosotros</h2>
+
+            <div className='player-wrapper scroll-arreglado-ejeY' 
+                    data-aos="fade-right"
+                    data-aos-easing="linear"
+                    data-aos-duration="1500">
+
                 <ReactPlayer 
                     url='https://youtu.be/QQTKvPbJ1YM'
                     controls='true'

@@ -24,11 +24,27 @@ function Inicio({portada, portadaBajo, portadaImagen, info1, info2, info3})
 
             <ImagenesInicio />
 
-            <hr className='linea'/>
-                <h1 className='text-center'>¿POR QUÉ ESTUDIAR INGENIERÍA EN CIENCIAS DE LA COMPUTACIÓN?</h1>
-            <hr className='linea'/>
+            <hr className='linea'   
+                data-aos="fade-up"
+                data-aos-easing="linear"
+                data-aos-duration="1500"/>
+                
+                <h1 className='text-center' 
+                    data-aos="fade-up"
+                    data-aos-easing="linear"
+                    data-aos-duration="1500">
+                    ¿POR QUÉ ESTUDIAR INGENIERÍA EN CIENCIAS DE LA COMPUTACIÓN?
+                </h1>
+            
+            <hr className='linea'   
+                data-aos="fade-up"
+                data-aos-easing="linear"
+                data-aos-duration="1500"/>
 
-            <div className='info'>
+            <div className='info' 
+                 data-aos="fade-up"
+                 data-aos-easing="linear"
+                 data-aos-duration="1500">
                 <Row className='justify-content-md-center'>
                     <Col sm={6} className='text-uppercase'>
                         <p>
@@ -47,8 +63,16 @@ function Inicio({portada, portadaBajo, portadaImagen, info1, info2, info3})
                     </Col>
                 </Row>
             </div>
-            <hr className='linea'/>
-            <div className='info'>
+
+            <hr className='linea'   
+                data-aos="fade-left"
+                data-aos-easing="linear"
+                data-aos-duration="1500"/>
+
+            <div className='info' 
+                 data-aos="fade-left"
+                 data-aos-easing="linear"
+                 data-aos-duration="1500">
                 <Row className='justify-content-md-center'>
                     <Col sm={4} className='d-flex flex-column justify-content-end'>
                         <img
@@ -66,8 +90,16 @@ function Inicio({portada, portadaBajo, portadaImagen, info1, info2, info3})
                     </Col>
                 </Row>
             </div>
-            <hr className='linea'/>
-            <div className='info infoUltima'>
+            <hr className='linea'   
+                data-aos="fade-right"
+                data-aos-easing="linear"
+                data-aos-duration="1500"/>
+                                    
+            <div className='info infoUltima' 
+                 data-aos="fade-right"
+                 data-aos-easing="linear"
+                 data-aos-duration="1500">
+                    
                 <Row className='justify-content-md-center'>
                     <Col sm={6} className='text-uppercase'>
                         <p>
