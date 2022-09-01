@@ -3,6 +3,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import '../../stylesheet/quienesSomos.css';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import ReactPlayer from 'react-player/lazy';
 
 function QuienesSomos({imagenNav, carousel1, carousel2})
 {
@@ -49,13 +50,13 @@ function QuienesSomos({imagenNav, carousel1, carousel2})
             <hr className='linea'/>
             <Row className='text-center'>
                 <Col className='text-uppercase'>
-                    <h2>Misión</h2>
+                    <h2 className='tituloVM'>Misión</h2>
                     <p className='mv justify-text'>
                         En el año 2022 seremos una universidad donde lo espiritual es tan importante como lo académico, con un sistema certificado y acreditado de educación superior, para el desarrollo intelectual, ético y moral de profesionales que contribuyan a la construcción de una nueva sociedad.
                     </p>
                 </Col>
                 <Col className='text-uppercase'>
-                    <h2>Visión</h2>
+                    <h2 className='tituloVM'>Visión</h2>
                     <p className='mv justify-text'>
                         Garantizar la presencia del catolicismo en la educación superior de Honduras y asegurar una formación integral en función de las distintas dimensiones del ser humano: lo social, lo moral, lo espiritual, lo científico, lo técnico y lo religioso.
                     </p>
@@ -64,21 +65,32 @@ function QuienesSomos({imagenNav, carousel1, carousel2})
             <h2 className='text-center text-uppercase valoresTitulo'>Nuestros Valores</h2>
             <Row className='text-uppercase text-center valores'>
                 <Col>
-                    <li>Justicia</li>
+                    Justicia
                 </Col>
                 <Col>
-                    <li>Orden</li>
+                    Orden
                 </Col>
                 <Col>
-                    <li>Paz</li>
+                    Amor
                 </Col>
                 <Col>
-                    <li>Amor</li>
+                    Paz
                 </Col>
                 <Col>
-                    <li>Verdad</li>
+                    Verdad
                 </Col>
             </Row>
+            <hr className='linea'/>
+            <h2 className='text-center text-uppercase tituloVideo'>Conoce un poco más sobre nosotros</h2>
+            <div className='player-wrapper'>
+                <ReactPlayer 
+                    url='https://youtu.be/QQTKvPbJ1YM'
+                    controls='true'
+                    width='100%'
+                    height='100%'
+                    className='react-player'
+                />
+            </div>
         </>
     );
 }

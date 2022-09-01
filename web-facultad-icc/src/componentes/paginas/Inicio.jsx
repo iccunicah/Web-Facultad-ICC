@@ -67,7 +67,7 @@ function Inicio({portada, portadaBajo, portadaImagen, info1, info2, info3})
                 </Row>
             </div>
             <hr className='linea'/>
-            <div className='info'>
+            <div className='info infoUltima'>
                 <Row className='justify-content-md-center'>
                     <Col sm={6} className='text-uppercase'>
                         <p>
