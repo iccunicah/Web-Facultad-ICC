@@ -7,8 +7,12 @@
     font-size: 20px;
     text-align: center;
 }
+.tituloVM{
+    font-weight: 450;
+}
 .valoresTitulo{
     margin-top: 25px;
+    font-weight: 450;
 }
 .valores{
     margin-bottom: 30px;
@@ -16,4 +20,23 @@
 .mv{
     padding-left: 15px;
     padding-right: 15px;
+}
+.player-wrapper {
+    position: relative;
+    padding-top: 56.25%;
+    margin-right: 10%;
+    margin-left: 10%;
+    margin-bottom: 80px;
+}
+.react-player {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    overflow-y: hidden;
+}
+.tituloVideo{
+    margin-bottom: 15px;
+    font-size: 50px;
+    font-weight: 500;
 }
