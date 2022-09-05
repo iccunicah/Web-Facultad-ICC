@@ -4,7 +4,6 @@ import '../../stylesheet/quienesSomos.css';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import ReactPlayer from 'react-player/lazy';
-import AOS from 'aos';
 
 function QuienesSomos({imagenNav, carousel1, carousel2})
 {
@@ -129,7 +128,7 @@ function QuienesSomos({imagenNav, carousel1, carousel2})
 
                 <ReactPlayer 
                     url='https://youtu.be/QQTKvPbJ1YM'
-                    controls='true'
+                    controls={true}
                     width='100%'
                     height='100%'
                     className='react-player'

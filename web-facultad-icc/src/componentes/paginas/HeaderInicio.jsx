@@ -4,7 +4,7 @@ function headerIncio({portada, portadaBajo, portadaImagen}) {
     return (  
         <header>
             <video
-                autoplay="true"
+                autoPlay={true}
                 className='portada'
                 muted="muted" 
                 loop="loop" 

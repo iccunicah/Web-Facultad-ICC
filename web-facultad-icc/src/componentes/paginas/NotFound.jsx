@@ -9,7 +9,7 @@ export function NotFound({imagenNav}) {
         setTimeout(()=>{
             navigate('/')
         }, 1000)
-    }, [])
+    }, [navigate])
     return(
             <>
             <img

@@ -1,7 +1,7 @@
 import React from "react";
 import {Nav, Navbar, Row, Col} from 'react-bootstrap';
 import { Instagram, Facebook, Youtube} from 'react-bootstrap-icons';
-import { NavLink, useMatch, useResolvedPath} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import '../../stylesheet/navInicio.css';
 
 export default function NavInicio({rutaImagen, rutaImagenToggle})
