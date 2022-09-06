@@ -85,7 +85,7 @@ function QuienesSomos({imagenNav, carousel1, carousel2})
                     </p>
                 </Col>
             </Row>
-            <h2 className='text-center text-uppercase valoresTitulo' 
+            <h2 className='text-center text-uppercase valoresTitulo mb-5 mt-5' 
                 data-aos="fade-up"
                 data-aos-easing="linear"
                 data-aos-duration="1500">Nuestros Valores</h2>

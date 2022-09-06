@@ -13,7 +13,7 @@ function Actividades({imagenNav}) {
   useEffect(() => {
 
     const referencia = collection(db, "actividades")
-    const Query = query(referencia, orderBy("timestamp", "asc"))
+    const Query = query(referencia, orderBy("timestamp", "desc"))
 
     onSnapshot(Query, (snapshot) => {
 
