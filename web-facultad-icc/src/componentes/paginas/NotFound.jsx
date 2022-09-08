@@ -1,23 +1,32 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Row, Col } from "react-bootstrap";
+import '../../stylesheet/notFound.css';
 
-export function NotFound({imagenNav}) {
+export function NotFound({imagenNav, wulu}) {
     const navigate = useNavigate();
 
     useEffect(()=>{
         setTimeout(()=>{
             navigate('/')
-        }, 1000)
+        }, 30000)
     }, [])
     return(
-            <>
-            <img
-                className="rutaImagenBajo"
-                src={require(`../../assets/img/navegacion/${imagenNav}`)}
-                alt="Logo de la Facultad" />
-            <h1>No se ha encontrado la página que buscas.</h1>
-            </>
+            <div className="todo">
+                <img
+                    className="rutaImagenBajo"
+                    src={require(`../../assets/img/navegacion/${imagenNav}`)}
+                    alt="Logo de la Facultad" />
+
+                <div className="container notFound">
+                    <Row>
+                            <img
+                                src={require(`../../assets/img/navegacion/${wulu}`)}
+                                alt="Wulu not found" />
+                    </Row>
+                </div>
+            </div>
         )
 
 }
