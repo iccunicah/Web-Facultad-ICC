@@ -4,9 +4,14 @@ import '../../stylesheet/quienesSomos.css';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import ReactPlayer from 'react-player/lazy';
+import AOS from 'aos';
+import { useEffect } from 'react';
 
 function QuienesSomos({ imagenNav, carousel1, carousel2 }) {
 
+    useEffect(()=>{
+        AOS.init({duration: 2000});
+    },[]);
     return (
         <>
             <Carousel fade>

@@ -1,5 +1,6 @@
 import React from "react";
 import { Instagram, Facebook, Youtube} from 'react-bootstrap-icons';
+import { NavLink } from 'react-router-dom';
 
 function Footer({rutaImagen}) {
     return (
@@ -17,14 +18,14 @@ function Footer({rutaImagen}) {
                     </ul>
 
                     <ul className="nav justify-content-center">
-                        <li className="nav-item text-center links-texto-footer"><a href="#" className="nav-link px-2 text-white">Inicio</a></li>
-                        <li className="nav-item text-center links-texto-footer"><a href="#" className="nav-link px-2 text-white">¿Quienes Somos?</a></li>
-                        <li className="nav-item text-center links-texto-footer"><a href="#" className="nav-link px-2 text-white">Actividades</a></li>
+                        <li className="nav-item text-center links-texto-footer"><NavLink to="/" className="nav-link px-2 text-white">Inicio</NavLink></li>
+                        <li className="nav-item text-center links-texto-footer"><NavLink to="/QuienesSomos" className="nav-link px-2 text-white">¿Quienes Somos?</NavLink></li>
+                        <li className="nav-item text-center links-texto-footer"><NavLink to="/Actividades" className="nav-link px-2 text-white">Actividades</NavLink></li>
                     </ul>
 
                     <ul className='nav justify-content-center'>
-                        <li className="nav-item tex-center links-texto-footer"><a href="#" className="nav-link px-2 text-white">Recursos</a></li>
-                        <li className="nav-item tex-center links-texto-footer"><a href="#" className="nav-link px-2 text-white">Contacto</a></li>
+                        <li className="nav-item tex-center links-texto-footer"><NavLink to="/Recursos" className="nav-link px-2 text-white">Recursos</NavLink></li>
+                        <li className="nav-item tex-center links-texto-footer"><NavLink to="/Contacto" className="nav-link px-2 text-white">Contacto</NavLink></li>
                     </ul>
 
                 </div>
