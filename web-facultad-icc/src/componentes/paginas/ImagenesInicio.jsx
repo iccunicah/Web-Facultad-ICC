@@ -3,7 +3,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import db from '../../firebase'
 import { onSnapshot, collection, orderBy, query } from 'firebase/firestore';
-import CardActividad from './CardActividad';
+import CardActividad from '../CardActividad';
 
 function ImagenesInicio() {
 

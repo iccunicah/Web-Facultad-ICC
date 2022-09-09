@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap';
 import CardVideos from './CardVideos';
 import { collection, onSnapshot } from 'firebase/firestore';
-import db from '../../firebase';
+import db from '../firebase'
 
 function GridRecursos({ videoId, titulo }) {
 

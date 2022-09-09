@@ -14,7 +14,7 @@ function Footer({rutaImagen}) {
                         <li><a href="https://www.facebook.com/iccunicah"><Facebook className="centrado"color="black" size="2rem"/></a></li>
                         <li><a href="https://www.youtube.com/channel/UC26gYslgbtHkUvptybeF8YA"><Youtube className="centrado" color="black" size="2rem"/></a></li>
                         <li><a href="https://www.instagram.com/iccunicah/"><Instagram className="centrado" color="black" size="2rem"/></a></li>
-                        <li><a href="https://unicah.edu/"><img src={require(`../assets/img-icons/${rutaImagen}`)}/></a></li>
+                        <li><a href="https://unicah.edu/"><img src={require(`../assets/img-icons/${rutaImagen}`)} alt="imagendku" /></a></li>
                     </ul>
 
                     <ul className="nav justify-content-center">

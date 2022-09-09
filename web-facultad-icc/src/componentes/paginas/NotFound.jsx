@@ -1,17 +1,19 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Row, Col } from "react-bootstrap";
+import { Row } from "react-bootstrap";
 import '../../stylesheet/notFound.css';
 
 export function NotFound({imagenNav, wulu}) {
     const navigate = useNavigate();
 
     useEffect(()=>{
-        setTimeout(()=>{
+
+        setTimeout(() => {
             navigate('/')
         }, 30000)
-    }, [])
+
+    }, [navigate])
     return(
             <div className="todo">
                 <img

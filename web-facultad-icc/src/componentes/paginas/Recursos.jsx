@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Container } from 'react-bootstrap';
 import db from '../../firebase';
 import { collection, onSnapshot } from 'firebase/firestore';
-import GridRecursos from './GridRecursos';
+import GridRecursos from '../GridRecursos';
 
 export function Recursos({imagenNav}){
 

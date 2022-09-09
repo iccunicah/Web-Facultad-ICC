@@ -9,12 +9,14 @@ export default function NavInicio({rutaImagen, rutaImagenToggle})
 	return(
 		<Navbar bg="negro" variant="dark" sticky="top" expand="lg" collapseOnSelect>
 			<Navbar.Brand>
-				<img
-					className="mr-5 Logo"
-					src={require(`../../assets/img/navegacion/${rutaImagen}`)}
-					height="100px"
-					alt="Logo de la Facultad"
-				/>
+				<NavLink to={'/'}>
+					<img
+						className="px-4 Logo"
+						src={require(`../../assets/img/navegacion/${rutaImagen}`)}
+						height="100px"
+						alt="Logo de la Facultad"
+					/>
+				</NavLink>
 			</Navbar.Brand>
 			<Navbar.Toggle aria-controls="basic-navbar-nav">
 					<img className="imgToggle" src={require(`../../assets/img/navegacion/${rutaImagenToggle}`)} alt="Icono de Toggle"/>
@@ -29,7 +31,7 @@ export default function NavInicio({rutaImagen, rutaImagenToggle})
 				</Nav>
 			</Navbar.Collapse>
 			<Navbar.Collapse className="justify-content-end text-center">
-				<Nav >
+				<Nav className="px-4">
 					<Row>
 						<Col>
 							<Nav.Link href="https://www.instagram.com/iccunicah/">
