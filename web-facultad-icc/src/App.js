@@ -32,7 +32,8 @@ function App () {
                                     info1='Foto1Info.png'
                                     info2='Foto2Info.png'
                                     info3='Foto3Info.png' />} />
-        <Route path="*" element={<NotFound imagenNav='FondoMenuMovil.png'/>} />
+        <Route path="*" element={<NotFound imagenNav='FondoMenuMovil.png'
+                                            wulu='wulu.png'/>} />
         <Route path="/QuienesSomos" element={<QuienesSomos 
                                                 imagenNav='FondoMenuMovil.png'
                                                 carousel1='Carousel1.png'
