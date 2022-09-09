@@ -65,3 +65,9 @@
     font-weight: 400;
     margin-top: 5px;
 }
+
+
+.card-contacto:hover{
+    font-size: 150%;
+    cursor: pointer;
+}
