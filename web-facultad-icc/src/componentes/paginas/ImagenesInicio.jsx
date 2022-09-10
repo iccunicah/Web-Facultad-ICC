@@ -28,7 +28,7 @@ function ImagenesInicio() {
             <Row xs={1} md={3} className="d-flex g-4">
                 
                 {imagenes.map(({ id, data: { img } }) => (
-                    <Col>
+                    <Col key={id}>
                         <CardActividad 
                         
                             key={id}

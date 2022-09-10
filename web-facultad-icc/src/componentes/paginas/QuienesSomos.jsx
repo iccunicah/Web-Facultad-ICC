@@ -3,6 +3,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import '../../stylesheet/quienesSomos.css';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import Container from 'react-bootstrap/Container';
 import ReactPlayer from 'react-player/lazy';
 import AOS from 'aos';
 import { useEffect } from 'react';
@@ -55,16 +56,20 @@ function QuienesSomos({ imagenNav, carousel1, carousel2 }) {
             <InfoQuienesSomos />
 
             {/** Misión y Visión */}
-            {MisionVision.map((info) => (
+            <Container>
+                <Row className='text-center'>
+                    {MisionVision.map((info) => (
 
-                <InfoMisionVision 
-                
-                    key={info.id}
-                    aos={info.aos}
-                    titulo={info.titulo}
-                    texto={info.texto}
-                />
-            ))}
+                        <InfoMisionVision 
+                        
+                            key={info.id}
+                            aos={info.aos}
+                            titulo={info.titulo}
+                            texto={info.texto}
+                        />
+                    ))}
+                </Row>
+            </Container>
 
             <h2 className='text-center text-uppercase valoresTitulo mb-5 mt-5' 
                 data-aos="fade-up"
