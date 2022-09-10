@@ -76,7 +76,7 @@ export function Contacto({ imagenNav }) {
 
             <hr className='linea'/>
             <h1 className='text-center text-uppercase m-5'>Ponte en contacto con nosotros:</h1>
-            <p className='justify-content text-center text-uppercase'>No olvides llenar cada uno de los campos.</p>
+            <p className='justify-content text-center text-uppercase'>No olvides llenar cada uno de los campos 🤠.</p>
             <Form className="text-center text-uppercase" onSubmit={sendEmail}>
                 <Row className="row pt-5 mx-auto">
                     <Col className="col-8 form-group pt-2 mx-auto">

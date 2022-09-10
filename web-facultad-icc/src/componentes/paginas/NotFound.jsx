@@ -11,7 +11,7 @@ export function NotFound({imagenNav, wulu}) {
 
         setTimeout(() => {
             navigate('/')
-        }, 30000)
+        }, 7000)
 
     }, [navigate])
     return(
