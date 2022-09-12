@@ -1,19 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import emailjs from '@emailjs/browser';
-import { Row, Col, Container, Button } from "react-bootstrap";
-import '../../stylesheet/contacto.css';
 import Form from 'react-bootstrap/Form';
-import { useEffect } from "react";
-import { collection, getDocs, orderBy, query } from "firebase/firestore";
-import db from "../../firebase";
 import CardContacto from "../CardContacto";
-import { yupResolver } from '@hookform/resolvers/yup';
+import { Row, Col, Container, Button } from "react-bootstrap";
+import { collection, getDocs, orderBy, query } from "firebase/firestore";
 import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import db from "../../firebase";
+import '../../stylesheet/contacto.css';
 import * as yup from 'yup';
 
 export function Contacto({ imagenNav }) {
 
     const [contactos, setContactos] = useState([]);
+    const [status, setStatus] = useState(false);
 
     // schema del formulario
     const schema = yup.object({
@@ -38,12 +38,14 @@ export function Contacto({ imagenNav }) {
     }).required();
 
     // funciones de react-hook-form
-    const { register, handleSubmit, formState: { errors} } = useForm({
+    const { register, handleSubmit, reset, formState: { errors} } = useForm({
         resolver: yupResolver(schema)
     })
 
     // funcion para enviar el correo
     const sendEmail = (data) => {
+
+        console.log(data);
 
         const templateParams = {
 
@@ -53,14 +55,21 @@ export function Contacto({ imagenNav }) {
             message: data.message
         }
         
-        emailjs.sendForm(process.env.REACT_APP_SERVICE_ID, process.env.REACT_APP_TEMPLATE_ID , templateParams, process.env.REACT_APP_PUBLIC_KEY)
+        emailjs.send(process.env.REACT_APP_SERVICE_ID, process.env.REACT_APP_TEMPLATE_ID , templateParams, process.env.REACT_APP_PUBLIC_KEY)
         .then((result) => {
-            console.log(result.text);
+            
+            if(result.status === 200){
+              
+                setStatus(true);
+                reset(); // para limpiar todos los campos del formulario, una vez que se haya enviado el correo
+            } 
+
         }, (error) => {
             
         });
     };
 
+    // este trae los contactos para mostrarlos en los cards
     useEffect(() => {
 
         const docs = (collection(db, "contacto"));
@@ -78,6 +87,22 @@ export function Contacto({ imagenNav }) {
         })   
 
     }, [])
+
+    // este es nada más para hacer desaparecer el mensaje cuando se envía un mensaje al correo
+    useEffect(() => {
+
+        if(status){
+
+            setTimeout(() =>{
+                setStatus(false)
+            }, 6000)
+        }
+
+        return () => {
+            clearTimeout()
+        }
+
+    }, [status])
 
     return (
         <>
@@ -115,8 +140,12 @@ export function Contacto({ imagenNav }) {
             <h1 className='text-center text-uppercase m-5'>Ponte en contacto con nosotros:</h1>
             <p className='justify-content text-center text-uppercase'>No olvides llenar cada uno de los campos 🤠.</p>
 
+            {status && (
+                <p className="text-center fw-bold">Gracias por contactarte con nosotros!</p>
+            )}
+
             <Form className="text-center text-uppercase" onSubmit={handleSubmit(sendEmail)}>
-                <Row className="row pt-5 mx-auto">
+                <Row className="row pt-3 mx-auto">
                     <Col className="col-8 form-group pt-2 mx-auto">
                         <Form.Label className="labelControl">Tema de mensaje</Form.Label>
                         <Form.Control 
@@ -142,7 +171,7 @@ export function Contacto({ imagenNav }) {
                         <Form.Label className="labelControl">Correo Electrónico</Form.Label>
                         <Form.Control 
                             className="text-center form-control-lg" 
-                            type="email" name="email" 
+                            type="text" name="email" 
                             placeholder="ejemplo@unicah.edu" 
                             {...register("email")} />
 
@@ -159,7 +188,7 @@ export function Contacto({ imagenNav }) {
                         <p>{errors.message?.message}</p>    
                     </Col>
 
-                    <div className="button_container mb-4">
+                    <div className="button_container mb-4 p-3">
                         <Button className="btn boton" variant="dark" type="submit" value="Send">
                             <span>Enviar Correo</span>
                         </Button>
