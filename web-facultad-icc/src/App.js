@@ -18,17 +18,17 @@ function App () {
     <div className="App">
       <>
         <NavInicio 
-          rutaImagen='LogoUnicahICC.png'
-          rutaImagenToggle='Vector.png'
+          rutaImagen='LogoUnicahICC.AVIF'
+          rutaImagenToggle='Vector.AVIF'
         />
         
         <Routes>
-          <Route path="/" element={<Inicio portada='Portada.mp4' portadaImagen='Portada.png' portadaBajo='layered-waves-black-white 1.png' />} />
-          <Route path="/QuienesSomos" element={<QuienesSomos imagenNav='FondoMenuMovil.png' carousel1='Carousel1.png' carousel2='Carousel2.png' />} />
-          <Route path="/Contacto" element={<Contacto imagenNav='FondoMenuMovil.png' />} />
-          <Route path="/Actividades" element={<Actividades imagenNav='FondoMenuMovil.png' />} />
-          <Route path="/Recursos" element={<Recursos imagenNav='FondoMenuMovil.png' />} />
-          <Route path="*" element={<NotFound imagenNav='FondoMenuMovil.png' wulu='wulu.png'/>} />
+          <Route path="/" element={<Inicio portada='Portada.mp4' portadaImagen='Portada.AVIF' portadaBajo='layered-waves-black-white 1.AVIF' />} />
+          <Route path="/QuienesSomos" element={<QuienesSomos imagenNav='FondoMenuMovil.AVIF' carousel1='Carousel1.AVIF' carousel2='Carousel2.AVIF' />} />
+          <Route path="/Contacto" element={<Contacto imagenNav='FondoMenuMovil.AVIF' />} />
+          <Route path="/Actividades" element={<Actividades imagenNav='FondoMenuMovil.AVIF' />} />
+          <Route path="/Recursos" element={<Recursos imagenNav='FondoMenuMovil.AVIF' />} />
+          <Route path="*" element={<NotFound imagenNav='FondoMenuMovil.AVIF' wulu='wulu.AVIF'/>} />
         </Routes>
       </>
       <Footer rutaImagen={'UNICAHlogo.png'} />

@@ -20,16 +20,18 @@ function InfoInicio({ aos, texto, img, direccion }) {
                     data-aos-easing="linear"
                     data-aos-duration="1500">
                 <Row className='justify-content-md-center'>
-                    <Col sm={6} className='text-uppercase'>
+                    <Col sm={6} className='flex-column align-items-center justify-content-center d-flex g-4 text-uppercase'>
                         <p>
                             {texto}
                         </p>
                     </Col>
-                    <Col sm={4} className='align-self-center'>
+                    <Col sm={4} className='flex-column align-items-center justify-content-center d-flex g-4'>
                         <img
+                            className="img-responsive"
                             src={img}
-                            height="250px"
-                            alt="Logo de la Facultad"
+                            width="100%"
+                            height={"auto"}
+                            alt="Imagen Representativa al texto"
                         />
                     </Col>
                 </Row>
@@ -42,14 +44,16 @@ function InfoInicio({ aos, texto, img, direccion }) {
                     data-aos-easing="linear"
                     data-aos-duration="1500">
                 <Row className='justify-content-md-center'>
-                    <Col sm={4} className='d-flex flex-column justify-content-end'>
+                    <Col sm={4} className='flex-column align-items-center justify-content-center d-flex g-4'>
                         <img
+                            cla="img-responsive"
                             src={img}
-                            height="250px"
-                            alt="Logo de la Facultad"
+                            width="100%"
+                            height={"auto"}
+                            alt="Imagen Representativa al texto"
                         />
                     </Col>
-                    <Col sm={6} className='text-uppercase'>
+                    <Col sm={6} className='flex-column align-items-center justify-content-center d-flex g-4 text-uppercase'>
                         <p>
                             {texto}
                         </p>
