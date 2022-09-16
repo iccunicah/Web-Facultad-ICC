@@ -33,7 +33,7 @@ function Actividades({imagenNav}) {
             alt="Adorno Nav"
         />
 
-        <Container fluid="md" className='mb-5'>
+        <Container fluid="sm" className='mb-5'>
             <h1 className="mt-5 text-center text-uppercase">Actividades recientes en la facultad</h1>
             <Row xs={1} md={3} className="g-4 mt-4 mb-4">            
 
