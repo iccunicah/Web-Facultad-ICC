@@ -4,7 +4,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import db from '../../firebase'
 import { onSnapshot, collection, orderBy, query } from 'firebase/firestore';
-import CardActividad from './CardActividad'
+import CardActividad from '../CardActividad'
 
 function Actividades({imagenNav}) {
 
@@ -33,12 +33,13 @@ function Actividades({imagenNav}) {
             alt="Adorno Nav"
         />
 
-        <Container fluid="md">
+        <Container fluid="sm" className='mb-5'>
+            <h1 className="mt-5 text-center text-uppercase">Actividades recientes en la facultad</h1>
             <Row xs={1} md={3} className="g-4 mt-4 mb-4">            
 
                 {actividades.map(({ id, data: { actividad, img, texto  } }) => (
 
-                    <Col>
+                    <Col key={id}>
                         <CardActividad
                         
                             key={id}

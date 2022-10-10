@@ -68,6 +68,7 @@
 
 
 .card-contacto:hover{
-    font-size: 150%;
+    transition: 0.2s ease-in-out;
+    font-size: 18px;
     cursor: pointer;
 }

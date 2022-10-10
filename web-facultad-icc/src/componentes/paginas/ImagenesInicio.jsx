@@ -3,7 +3,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import db from '../../firebase'
 import { onSnapshot, collection, orderBy, query } from 'firebase/firestore';
-import CardActividad from './CardActividad';
+import CardActividad from '../CardActividad';
 
 function ImagenesInicio() {
 
@@ -21,14 +21,14 @@ function ImagenesInicio() {
             data: doc.data()
         })))
     })
-  }, [])
+    }, [])
 
     return (
         <div className="ImagenesInicio" data-aos="fade-up">
-            <Row xs={1} md={3} className="d-flex g-4">
+            <Row xs={1} md={3} className="align-items-center justify-content-center d-flex g-4">
                 
                 {imagenes.map(({ id, data: { img } }) => (
-                    <Col>
+                    <Col xs="auto" key={id}>
                         <CardActividad 
                         
                             key={id}

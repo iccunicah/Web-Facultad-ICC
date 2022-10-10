@@ -2,6 +2,7 @@ import React from 'react'
 import Card from 'react-bootstrap/Card'
 
 function CardActividad({ actividad, img, texto }) {
+
   return (
 
     <Card style={{
@@ -15,7 +16,7 @@ function CardActividad({ actividad, img, texto }) {
             maxHeight: '342px',
             objectFit: 'cover'
 
-        }} variant="top" src={`http://drive.google.com/uc?export=view&id=${img}`} />
+        }} variant="top" src={img} />
 
         {actividad && texto && (
             <Card.Body>

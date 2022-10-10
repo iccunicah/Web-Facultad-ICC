@@ -1,37 +1,109 @@
-import React, { useRef } from "react";
+import React, { useState, useEffect } from "react";
 import emailjs from '@emailjs/browser';
-import { Row, Col } from "react-bootstrap";
-import '../../stylesheet/contacto.css';
 import Form from 'react-bootstrap/Form';
-import Card from 'react-bootstrap/Card';
-
-//Iconos
-import CorporateFareIcon from '@mui/icons-material/CorporateFare';
-import ContactMailIcon from '@mui/icons-material/ContactMail';
-import LocalLibraryIcon from '@mui/icons-material/LocalLibrary';
-import AddCardSharpIcon from '@mui/icons-material/AddCardSharp';
-import Diversity1SharpIcon from '@mui/icons-material/Diversity1Sharp';
-import SchoolSharpIcon from '@mui/icons-material/SchoolSharp';
-import SavingsSharpIcon from '@mui/icons-material/SavingsSharp';
-import AssignmentIndSharpIcon from '@mui/icons-material/AssignmentIndSharp';
-import PublicIcon from '@mui/icons-material/Public';
-
-
-
-
+import CardContacto from "../CardContacto";
+import { Row, Col, Container, Button } from "react-bootstrap";
+import { collection, getDocs, orderBy, query } from "firebase/firestore";
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import db from "../../firebase";
+import '../../stylesheet/contacto.css';
+import * as yup from 'yup';
 
 export function Contacto({ imagenNav }) {
-    const sendEmail = (e) => {
-        e.preventDefault();
 
-        emailjs.sendForm('service_3jl48qm', 'template_2tlxwll', e.target, 'm-_ulqYjjv5In9T_B')
-            .then((result) => {
-                console.log(result.text);
-                e.target.reset();
-            }, (error) => {
-                console.log(error.text);
-            });
+    const [contactos, setContactos] = useState([]);
+    const [status, setStatus] = useState(false);
+
+    // schema del formulario
+    const schema = yup.object({
+
+        subject: yup.string()
+        .min(5, "Este campo debe contener al menos 5 caracteres.")
+        .required("Este campo es obligatorio."),
+
+        name: yup.string()
+        .matches(/^[a-zA-Z\s]*$/, 'En este campo solamente se pueden incluir letras.')
+        .min(5, "Nombre debe contener al menos 5 caracteres.")
+        .required('Este campo es obligatorio.'),
+
+        email: yup.string()
+        .email("Formato incorrecto del correo electrónico.")
+        .required('Este campo es obligatorio.'),
+
+        message: yup.string()
+        .min(5, "Mensaje debe contener al menos 5 caracteres.")
+        .required('Este campo es obligatorio.'),
+        
+    }).required();
+
+    // funciones de react-hook-form
+    const { register, handleSubmit, reset, formState: { errors} } = useForm({
+        resolver: yupResolver(schema)
+    })
+
+    // funcion para enviar el correo
+    const sendEmail = (data) => {
+
+        console.log(data);
+
+        const templateParams = {
+
+            subject: data.subject,
+            name: data.name,
+            email: data.email,
+            message: data.message
+        }
+        
+        emailjs.send(process.env.REACT_APP_SERVICE_ID, process.env.REACT_APP_TEMPLATE_ID , templateParams, process.env.REACT_APP_PUBLIC_KEY)
+        .then((result) => {
+            
+            if(result.status === 200){
+              
+                setStatus(true);
+                reset(); // para limpiar todos los campos del formulario, una vez que se haya enviado el correo
+            } 
+
+        }, (error) => {
+            
+        });
     };
+
+    // este trae los contactos para mostrarlos en los cards
+    useEffect(() => {
+
+        const docs = (collection(db, "contacto"));
+        const consulta = query(docs, orderBy("timestamp", "asc"))
+
+        getDocs(consulta)
+        .then((snapshot) => {
+
+            setContactos(snapshot.docs.map((doc) => ({
+
+                id: doc.id,
+                data: doc.data()
+
+            })))
+        })   
+
+    }, [])
+
+    // este es nada más para hacer desaparecer el mensaje cuando se envía un mensaje al correo
+    useEffect(() => {
+
+        if(status){
+
+            setTimeout(() =>{
+                setStatus(false)
+            }, 6000)
+        }
+
+        return () => {
+            clearTimeout()
+        }
+
+    }, [status])
+
     return (
         <>
             <div className='Contenido'>
@@ -42,145 +114,84 @@ export function Contacto({ imagenNav }) {
                 />
             </div>
 
-            
-
             <h1 className='text-center text-uppercase mx-auto m-5'>Contacto</h1>
+
+            <Container>
             
-            
-            <Row xs={1} md={3} className="g-4">
+                <Row xs={1} md={3} className="g-4">
 
-                <Col>
-                    <Card className="card-contacto text-center">
-                        <Card.Body>
-                            <SchoolSharpIcon className="colorIcon" fontSize="large" />
-                            <Card.Title>Decanatura</Card.Title>
-                            <Card.Text>
-                                computacionscj@unicah.edu
-                            </Card.Text>
-                        </Card.Body>
-                    </Card>
-                </Col>
+                    {contactos.map(({ id, data: { Icon, titulo, correo, footer }}) => (
 
-                <Col>
-                    <Card className="card-contacto text-center"  >
-                        <Card.Body>
-                            <ContactMailIcon fontSize="large" />
-                            <Card.Title>Asociaicon Estudiantil</Card.Title>
-                            <Card.Text>
-                                asociaciondeingenieriaicc@gmail.com
-                            </Card.Text>
-                        </Card.Body>
-                    </Card>
-                </Col>
-                
-                <Col>
-                    <Card className="card-contacto text-center">
-                        <Card.Body>
-                            <SavingsSharpIcon fontSize="large" />
-                            <Card.Title>Tesoreria</Card.Title>
-                            <Card.Text>
-                                asisttesoreriascj@unicah.edu
-                            </Card.Text>
-                        </Card.Body>
-                    </Card>
-                </Col>
-                
-                <Col>
-                    <Card className="card-contacto text-center">
-                        <Card.Body>
-                            <AssignmentIndSharpIcon fontSize="large" />
-                            <Card.Title>Registro</Card.Title>
-                            <Card.Text>
-                                registroscj@unicah.edu
-                            </Card.Text>
-                        </Card.Body>
-                    </Card>
-                </Col><Col>
-
-                    <Card className="card-contacto text-center">
-                        <Card.Body>
-                            <LocalLibraryIcon fontSize="large"  />
-                            <Card.Title>Bibloteca</Card.Title>
-                            <Card.Text>
-                                biblotecascj@unicah.edu
-                            </Card.Text>
-                        </Card.Body>
-                    </Card>
-                </Col>
-                
-                <Col>
-                    <Card className="card-contacto text-center">
-                        <Card.Body>
-                        <AddCardSharpIcon fontSize="large" />
-                            <Card.Title>Contabilidad</Card.Title>
-                            <Card.Text>
-                                fposadas@unicah.edu
-                            </Card.Text>
-                        </Card.Body>
-                    </Card>
-                </Col>
-                
-                <Col>
-                    <Card className="card-contacto text-center">
-                        <Card.Body>
-                            <Diversity1SharpIcon fontSize="large" />
-                            <Card.Title>Bienestar Universitario, Ceneval y Becas</Card.Title>
-
-                            <Card.Text>bienestarscj@unicah.edu</Card.Text>
-                            <Card.Text>asistbienestarscj@unicah.edu</Card.Text>
-                        </Card.Body>
-                    </Card>
-                </Col>
-
-                <Col>
-                    <Card className="card-contacto text-center">
-                        <Card.Body>
-                            <CorporateFareIcon fontSize="large" />
-                            <Card.Title>Admisiones y Recepcion SCJ</Card.Title>
-                            <Card.Text>admisionesscj@unicah.edu</Card.Text>
-                            <Card.Text>recepcionscj@unicah.edu</Card.Text>
-                        </Card.Body>
-                    </Card>
-                </Col>
-
-                <Col>
-                    <Card className="card-contacto text-center">
-                        <Card.Body>
-                        <PublicIcon fontSize="large" />
-                            <Card.Title>Redes Sociales</Card.Title>
-                            <Card.Text>@iccunicah</Card.Text>
-                            <Card.Text>Facultad de Ingenieria en Ciencias de la Computación Unicah</Card.Text>
-                        </Card.Body>
-                    </Card>
-                </Col>
-
-            </Row>
+                        <Col key={id}>
+                            <CardContacto 
+                            
+                                key={id}
+                                Icono={Icon}
+                                titulo={titulo}
+                                correo={correo}
+                                footer={footer}
+                            />
+                        </Col>
+                    ))}
+                </Row>
+            </Container>
 
             <hr className='linea'/>
             <h1 className='text-center text-uppercase m-5'>Ponte en contacto con nosotros:</h1>
-            <p className='justify-content text-center text-uppercase'>No olvides llenar cada uno de los campos.</p>
-            <Form className="text-center text-uppercase" onSubmit={sendEmail}>
-                <Row className="row pt-5 mx-auto">
+            <p className='justify-content text-center text-uppercase'>No olvides llenar cada uno de los campos 🤠.</p>
+
+            {status && (
+                <p className="text-center fw-bold">Gracias por contactarte con nosotros!</p>
+            )}
+
+            <Form className="text-center text-uppercase" onSubmit={handleSubmit(sendEmail)}>
+                <Row className="row pt-3 mx-auto">
                     <Col className="col-8 form-group pt-2 mx-auto">
                         <Form.Label className="labelControl">Tema de mensaje</Form.Label>
-                        <Form.Control className="text-center form-control-lg" type="text" name="subject" placeholder="Consulta Actividad" />
+                        <Form.Control 
+                            className="text-center form-control-lg" 
+                            type="text" name="subject" 
+                            placeholder="Consulta Actividad"
+                            {...register("subject")} />
+
+                        <p>{errors.subject?.message}</p>    
                     </Col>
-                    <Col className="col-8 form-group pt-2 mx-auto">
+                     <Col className="col-8 form-group pt-2 mx-auto">
                         <Form.Label className="labelControl">Nombre</Form.Label>
-                        <Form.Control className="text-center form-control-lg" type="text" name="name" placeholder="Juan Sobalvarro" />
+                        <Form.Control 
+                            className="text-center form-control-lg" 
+                            type="text" name="name" 
+                            placeholder="Juan Sobalvarro"
+                            {...register("name")} />
+
+                        <p>{errors.name?.message}</p>    
                     </Col>
+                    
                     <Col className="col-8 form-group pt-2 mx-auto">
                         <Form.Label className="labelControl">Correo Electrónico</Form.Label>
-                        <Form.Control className="text-center form-control-lg" type="email" name="email" placeholder="ejemplo@unicah.edu" />
+                        <Form.Control 
+                            className="text-center form-control-lg" 
+                            type="text" name="email" 
+                            placeholder="ejemplo@unicah.edu" 
+                            {...register("email")} />
+
+                        <p>{errors.email?.message}</p>    
                     </Col>
+                    
                     <Col className="col-8 form-group pt-2 mx-auto">
                         <Form.Label className="labelControl">Mensaje</Form.Label>
-                        <Form.Control as="textarea" rows={3} name="message" />
+                        <Form.Control 
+                            as="textarea" rows={3} 
+                            name="message"
+                            {...register("message")} />
+
+                        <p>{errors.message?.message}</p>    
                     </Col>
-                    <div className="button_container">
-                        <button className="btn boton" type="submit" value="Send">
+
+                    <div className="button_container mb-4 p-3">
+                        <Button className="btn boton" variant="dark" type="submit" value="Send">
                             <span>Enviar Correo</span>
-                        </button>
+                        </Button>
                     </div>
                 </Row>
             </Form>

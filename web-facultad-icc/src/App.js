@@ -16,34 +16,22 @@ import { NotFound } from './componentes/paginas/NotFound';
 function App () {
   return (
     <div className="App">
-      <header className="App-header">
-        
-      </header>
       <>
-      <NavInicio 
-        rutaImagen='LogoUnicahICC.png'
-        rutaImagenToggle='Vector.png'
-      />
-      <Routes>
-        <Route path="/" element={<Inicio 
-                                    portada='Portada.mp4' 
-                                    portadaImagen='Portada.png' 
-                                    portadaBajo='layered-waves-black-white 1.png'
-                                    info1='Foto1Info.png'
-                                    info2='Foto2Info.png'
-                                    info3='Foto3Info.png' />} />
-        <Route path="*" element={<NotFound imagenNav='FondoMenuMovil.png'
-                                            wulu='wulu.png'/>} />
-        <Route path="/QuienesSomos" element={<QuienesSomos 
-                                                imagenNav='FondoMenuMovil.png'
-                                                carousel1='Carousel1.png'
-                                                carousel2='Carousel2.png' />} />
-        <Route path="/Contacto" element={<Contacto imagenNav='FondoMenuMovil.png' />} />
-        <Route path="/Actividades" element={<Actividades imagenNav='FondoMenuMovil.png' />} />
-        <Route path="/Recursos" element={<Recursos imagenNav='FondoMenuMovil.png' />} />
-      </Routes>
-    </>
-    <Footer rutaImagen={'UNICAHlogo.png'} />
+        <NavInicio 
+          rutaImagen='LogoUnicahICC.AVIF'
+          rutaImagenToggle='Vector.AVIF'
+        />
+        
+        <Routes>
+          <Route path="/" element={<Inicio portada='Portada.mp4' portadaImagen='Portada.AVIF' portadaBajo='layered-waves-black-white 1.AVIF' />} />
+          <Route path="/QuienesSomos" element={<QuienesSomos imagenNav='FondoMenuMovil.AVIF' carousel1='Carousel1.AVIF' carousel2='Carousel2.AVIF' />} />
+          <Route path="/Contacto" element={<Contacto imagenNav='FondoMenuMovil.AVIF' />} />
+          <Route path="/Actividades" element={<Actividades imagenNav='FondoMenuMovil.AVIF' />} />
+          <Route path="/Recursos" element={<Recursos imagenNav='FondoMenuMovil.AVIF' />} />
+          <Route path="*" element={<NotFound imagenNav='FondoMenuMovil.AVIF' wulu='wulu.AVIF'/>} />
+        </Routes>
+      </>
+      <Footer rutaImagen={'UNICAHlogo.png'} />
     </div>
   );
 }
