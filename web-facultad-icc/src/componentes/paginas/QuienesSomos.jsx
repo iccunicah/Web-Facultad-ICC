@@ -105,7 +105,7 @@ function QuienesSomos({ imagenNav, carousel1, carousel2 }) {
                 data-aos-duration="1500">
 
                 <ReactPlayer
-                    url='https://youtu.be/QQTKvPbJ1YM'
+                    url='http://youtu.be/QQTKvPbJ1YM'
                     controls={true}
                     width='100%'
                     height='100%'

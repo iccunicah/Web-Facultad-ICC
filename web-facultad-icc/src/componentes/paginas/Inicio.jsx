@@ -24,6 +24,7 @@ function Inicio({ portada, portadaBajo, portadaImagen })
                 portadaBajo={portadaBajo} 
                 portadaImagen={portadaImagen} />
 
+            {/** Imagenes de estudiantes ICC */}
             <ImagenesInicio />
 
             <hr className='linea'   

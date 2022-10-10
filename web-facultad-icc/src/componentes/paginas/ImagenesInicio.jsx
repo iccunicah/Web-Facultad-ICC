@@ -21,14 +21,14 @@ function ImagenesInicio() {
             data: doc.data()
         })))
     })
-  }, [])
+    }, [])
 
     return (
         <div className="ImagenesInicio" data-aos="fade-up">
-            <Row xs={1} md={3} className="d-flex g-4">
+            <Row xs={1} md={3} className="align-items-center justify-content-center d-flex g-4">
                 
                 {imagenes.map(({ id, data: { img } }) => (
-                    <Col key={id}>
+                    <Col xs="auto" key={id}>
                         <CardActividad 
                         
                             key={id}
