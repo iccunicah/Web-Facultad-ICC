@@ -24,7 +24,7 @@ export default function NavInicio({rutaImagen, rutaImagenToggle})
 			<Navbar.Collapse className="flex-row-reverse text-center">
 				<Nav>
 					<NavLink to='/' className="opcMenu">INICIO</NavLink>
-					<NavLink to='/QuienesSomos' className="opcMenu">¿QUENES SOMOS?</NavLink>
+					<NavLink to='/QuienesSomos' className="opcMenu">¿QUIENES SOMOS?</NavLink>
 					<NavLink to='/Actividades' className="opcMenu">ACTIVIDADES</NavLink>
 					<NavLink to='/Recursos' className="opcMenu">RECURSOS</NavLink>
 					<NavLink to='/Contacto' className="opcMenu">CONTACTO</NavLink>

@@ -22,7 +22,7 @@ function QuienesSomos({ imagenNav, carousel1, carousel2 }) {
     return (
         <>
         {/** Carousel */}
-            <Carousel fade>
+            <Carousel fade variant="dark">
                 <Carousel.Item interval={5000}>
                     <a href="https://unicah.edu/FlujogramasWeb/#IF01002">
                         <img
