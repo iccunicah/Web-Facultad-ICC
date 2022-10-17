@@ -45,8 +45,6 @@ export function Contacto({ imagenNav }) {
     // funcion para enviar el correo
     const sendEmail = (data) => {
 
-        console.log(data);
-
         const templateParams = {
 
             subject: data.subject,
