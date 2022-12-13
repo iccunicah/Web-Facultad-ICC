@@ -10,6 +10,7 @@ import { useEffect } from 'react';
 import InfoQuienesSomos from '../InfoQuienesSomos';
 import { MisionVision } from '../../Mision&Vision';
 import InfoMisionVision from '../InfoMisionVision';
+import VideoQuienesSomos from '../videosQuienesSomos';
 
 function QuienesSomos({ imagenNav, carousel1, carousel2 }) {
 
@@ -22,8 +23,8 @@ function QuienesSomos({ imagenNav, carousel1, carousel2 }) {
     return (
         <>
         {/** Carousel */}
-            <Carousel fade variant="dark">
-                <Carousel.Item interval={5000}>
+            <Carousel fade variant="dark" indicators>
+                <Carousel.Item interval={1500}>
                     <a href="https://unicah.edu/FlujogramasWeb/#IF01002">
                         <img
                             className="d-block w-100"
@@ -32,7 +33,7 @@ function QuienesSomos({ imagenNav, carousel1, carousel2 }) {
                         />
                     </a>
                 </Carousel.Item>
-                <Carousel.Item interval={5000}>
+                <Carousel.Item interval={1500}>
                     <a href="https://drive.google.com/file/d/1vzmz3Ri1vnhkcTa54z6M7C2ApJ8MpULf/view?usp=sharing">
                         <img
                             className="d-block w-100"
@@ -99,19 +100,8 @@ function QuienesSomos({ imagenNav, carousel1, carousel2 }) {
                 data-aos-easing="linear"
                 data-aos-duration="1500">Conoce un poco más sobre nosotros</h2>
 
-            <div className='player-wrapper scroll-arreglado-ejeY'
-                data-aos="fade-right"
-                data-aos-easing="linear"
-                data-aos-duration="1500">
-
-                <ReactPlayer
-                    url='http://youtu.be/QQTKvPbJ1YM'
-                    controls={true}
-                    width='100%'
-                    height='100%'
-                    className='react-player'
-                />
-            </div>
+            <VideoQuienesSomos enlaceVideo='youtu.be/QQTKvPbJ1YM'/>
+            <VideoQuienesSomos enlaceVideo='youtu.be/P9lkHMVM6_I'/>
         </>
     );
 }
